@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Geomama tracking solutions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <style type = "text/css">
+        table, th, td {border: 1px solid black};
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Country</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in employees">
+            <td>{{View_LiveVehicleSignal.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.country}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('customersCtrl', function($scope, $http) {
+            $http.get("")
+                    .then(function (response) {$scope.names = response.data.records;});
+        });
+    </script>
+</body>
+</html>
